@@ -24,11 +24,8 @@ async def on_message(message):
     elif message.content.startswith("$passgen10"):
         await message.channel.send(passgen10())
     elif message.content.startswith("$passgen"):
-        await message.channel.send("How many characters should the password consist of?")
-        if message.author == client.user:
-            return
-        else:
-            await message.channel.send(passgen(message.content))
+        uzunluk = message.content[8:]
+        await message.channel.send(passgen(uzunluk))
     elif message.content.startswith("$head or tails"):
         await message.channel.send(head_or_tails())
     
